@@ -134,7 +134,7 @@ export default function AboutPage() {
 								<h2>The ultimate solution to AI systems is here.</h2>
 								<p>Have you been searching for a solution to AI systems? Look no further. Our solution is tailored for your business.</p>
 							</div>
-							<a className="btn btn-primary" href="/contact">Start Automating Today</a>
+							<a className="btn btn-primary" href="/contact#book-a-call">Book a Call</a>
 						</div>
 					</section>
 				</main>

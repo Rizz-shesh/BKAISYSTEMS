@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const BOOKING_URL =
-	"https://app.growthhub365.com/v2/location/oN7FYs5uP7gL7raoK7Nu/form-builder-v2/ELpsu0UWhFAK29q6gdvf";
+	"https://app.chrisbhustling.com/widget/form/ELpsu0UWhFAK29q6gdvf";
 const PHONE = "1-724-201-3759";
 const PHONE_HREF = "tel:+17242013759";
 
@@ -875,7 +875,7 @@ export default function HomePage() {
 							</nav>
 							<div className="nav-actions">
 								<a className="phone-link" href={PHONE_HREF}>{PHONE}</a>
-								<a className="btn btn-primary" href="/contact">Contact Us</a>
+								<a className="btn btn-primary" href="/contact#book-a-call">Book a Call</a>
 							</div>
 							<button className="menu-btn" type="button" onClick={() => setMenuOpen((value) => !value)} aria-label="Toggle navigation">
 								{menuOpen ? "Close" : "Menu"}
@@ -900,7 +900,7 @@ export default function HomePage() {
 									BK AI Systems installs intelligent AI and GHL CRM infrastructure that responds instantly, qualifies leads, books appointments, and follows up automatically, 24/7.
 								</p>
 								<div className="hero-actions">
-									<a className="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Test an AI Receptionist</a>
+									<a className="btn btn-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Book a Call</a>
 									<a className="btn btn-secondary" href={PHONE_HREF}>Call {PHONE}</a>
 								</div>
 								<div className="hero-proof">
@@ -940,7 +940,7 @@ export default function HomePage() {
 									</p>
 									<div className="founder-actions">
 										<a className="btn btn-secondary" href="/about">About BK AI Systems</a>
-										<a className="btn btn-primary" href="/contact">Start Automating Today</a>
+										<a className="btn btn-primary" href="/contact#book-a-call">Book a Call</a>
 									</div>
 								</div>
 								<div className="founder-photo">

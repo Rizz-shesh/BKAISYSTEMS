@@ -979,7 +979,7 @@ export default function BlogPage() {
 							<p>
 								Stop chasing every task manually. Start building systems that work for you. Let AI handle the busy work so you can focus on building the future of your business.
 							</p>
-							<a className="btn" href="/contact">Call or Text 724-201-3759</a>
+							<a className="btn" href="/contact#book-a-call">Book a Call</a>
 						</section>
 					</div>
 				</article>
@@ -993,7 +993,7 @@ export default function BlogPage() {
 									Contact Chris Bell and BK AI Systems to learn how AI can generate more leads, automate repetitive tasks, and increase revenue.
 								</p>
 							</div>
-							<a className="btn" href="/contact">Contact Us</a>
+							<a className="btn" href="/contact#book-a-call">Book a Call</a>
 						</div>
 					</div>
 				</section>
