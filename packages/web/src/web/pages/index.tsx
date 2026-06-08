@@ -864,7 +864,7 @@ export default function HomePage() {
 					<div className="container">
 						<div className="nav">
 							<a className="brand" href="#top">
-								<img src="/bk-logo-transparent.png" alt="BK AI Systems" />
+								<img src="/bk-logo.png" alt="BK AI Systems" />
 								<span>BK AI Systems</span>
 							</a>
 							<nav className="nav-links" aria-label="Main navigation">
