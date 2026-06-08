@@ -23,7 +23,7 @@ export default function ContactPage() {
 			<Styles />
 			<header className="header">
 				<div className="container nav">
-					<a className="brand" href="/"><img src="/bk-logo-transparent.png" alt="BK AI Systems" /><span>BK AI Systems</span></a>
+					<a className="brand" href="/"><img src="/bk-logo.png" alt="BK AI Systems" /><span>BK AI Systems</span></a>
 					<nav className="nav-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/contact">Contact Us</a></nav>
 				</div>
 			</header>

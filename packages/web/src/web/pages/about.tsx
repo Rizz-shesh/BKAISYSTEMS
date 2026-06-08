@@ -169,7 +169,7 @@ function SiteFooter() {
 		<footer className="footer">
 			<div className="container footer-inner">
 				<a className="brand" href="/">
-					<img src="/bk-logo-transparent.png" alt="BK AI Systems" />
+					<img src="/bk-logo.png" alt="BK AI Systems" />
 					<span>BK AI Systems</span>
 				</a>
 				<div>© 2026 BK AI Systems. All rights reserved.</div>
