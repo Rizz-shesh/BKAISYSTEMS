@@ -157,6 +157,7 @@ function SiteHeader() {
 					<a href="/about">About</a>
 					<a href="/blog">Blog</a>
 					<a href="/contact">Contact Us</a>
+					<a href="/feedback">Leave Feedback</a>
 				</nav>
 				<a className="phone-link" href={PHONE_HREF}>{PHONE}</a>
 			</div>
@@ -172,6 +173,7 @@ function SiteFooter() {
 					<img src="/bk-logo.png" alt="BK AI Systems" />
 					<span>BK AI Systems</span>
 				</a>
+				<a href="/feedback"><strong>Leave Feedback</strong></a>
 				<div>© 2026 BK AI Systems. All rights reserved.</div>
 			</div>
 		</footer>

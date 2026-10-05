@@ -24,7 +24,7 @@ export default function ContactPage() {
 			<header className="header">
 				<div className="container nav">
 					<a className="brand" href="/"><img src="/bk-logo.png" alt="BK AI Systems" /><span>BK AI Systems</span></a>
-					<nav className="nav-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/contact">Contact Us</a></nav>
+					<nav className="nav-links"><a href="/">Home</a><a href="/about">About</a><a href="/blog">Blog</a><a href="/contact">Contact Us</a><a href="/feedback">Leave Feedback</a></nav>
 				</div>
 			</header>
 			<main>
@@ -80,7 +80,7 @@ export default function ContactPage() {
 					</div>
 				</section>
 			</main>
-			<footer className="footer"><div className="container">&copy; 2026 BK AI Systems. All rights reserved.</div></footer>
+			<footer className="footer"><div className="container">&copy; 2026 BK AI Systems. All rights reserved. &nbsp; <a href="/feedback"><strong>Leave Feedback</strong></a></div></footer>
 		</>
 	);
 }

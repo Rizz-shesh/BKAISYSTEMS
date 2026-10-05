@@ -872,6 +872,7 @@ export default function HomePage() {
 								<a href="/about">About</a>
 								<a href="/blog">Blog</a>
 								<a href="/contact">Contact Us</a>
+								<a href="/feedback">Leave Feedback</a>
 							</nav>
 							<div className="nav-actions">
 								<a className="phone-link" href={PHONE_HREF}>{PHONE}</a>
@@ -886,6 +887,7 @@ export default function HomePage() {
 							<a href="/about" onClick={() => setMenuOpen(false)}>About</a>
 							<a href="/blog" onClick={() => setMenuOpen(false)}>Blog</a>
 							<a href="/contact" onClick={() => setMenuOpen(false)}>Contact Us</a>
+							<a href="/feedback" onClick={() => setMenuOpen(false)}>Leave Feedback</a>
 						</div>
 					</div>
 				</header>
@@ -1142,6 +1144,7 @@ export default function HomePage() {
 								<a href="/about">About</a>
 								<a href="/blog">Blog</a>
 								<a href="/contact">Contact Us</a>
+								<a href="/feedback">Leave Feedback</a>
 							</div>
 						</div>
 					</div>

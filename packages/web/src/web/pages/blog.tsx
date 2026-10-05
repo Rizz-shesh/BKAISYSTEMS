@@ -539,6 +539,7 @@ export default function BlogPage() {
 						<a href="/about">About</a>
 						<a href="/blog">Blog</a>
 						<a href="/contact">Contact Us</a>
+						<a href="/feedback">Leave Feedback</a>
 					</nav>
 				</div>
 			</header>
@@ -1007,6 +1008,7 @@ export default function BlogPage() {
 						<a href="/about">About</a>
 						<a href="/blog">Blog</a>
 						<a href="/contact">Contact Us</a>
+						<a href="/feedback">Leave Feedback</a>
 					</div>
 				</div>
 			</footer>
