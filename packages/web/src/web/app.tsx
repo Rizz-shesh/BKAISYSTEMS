@@ -4,6 +4,7 @@ import About from "./pages/about";
 import Blog from "./pages/blog";
 import Contact from "./pages/contact";
 import Feedback from "./pages/feedback";
+import Templates from "./pages/templates";
 import { Provider } from "./components/provider";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
 				<Route path="/blog" component={Blog} />
 				<Route path="/contact" component={Contact} />
 				<Route path="/feedback" component={Feedback} />
+				<Route path="/templates" component={Templates} />
 			</Switch>
 		</Provider>
 	);

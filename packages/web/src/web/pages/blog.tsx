@@ -1,3 +1,5 @@
+import { Layout, usePageMeta } from "../components/layout";
+
 const highlights = [
 	"Customer service and support",
 	"Lead generation and sales",
@@ -195,361 +197,14 @@ const whyChooseBk = [
 ];
 
 export default function BlogPage() {
+	usePageMeta("Blog | BK AI Systems", "How AI is transforming modern business, whether AI will replace humans, and why BK AI Systems is the right choice for growing businesses.");
 	return (
-		<>
-			<style>{`
-				* { box-sizing: border-box; }
-				html { scroll-behavior: smooth; }
-				body {
-					margin: 0;
-					background: #f8fafc;
-					color: #111827;
-					font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-				}
-				a { color: inherit; text-decoration: none; }
-				img { display: block; max-width: 100%; }
-				.container { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
-				.article-container { width: min(880px, calc(100% - 40px)); margin: 0 auto; }
-				.header {
-					position: sticky;
-					top: 0;
-					z-index: 50;
-					background: rgba(255,255,255,.92);
-					backdrop-filter: blur(18px);
-					border-bottom: 1px solid rgba(17,24,39,.08);
-				}
-				.nav {
-					min-height: 76px;
-					display: flex;
-					align-items: center;
-					justify-content: space-between;
-					gap: 24px;
-				}
-				.brand {
-					display: inline-flex;
-					align-items: center;
-					gap: 12px;
-					font-weight: 850;
-					letter-spacing: -.02em;
-				}
-				.brand img { width: 42px; height: 42px; object-fit: contain; }
-				.nav-links {
-					display: flex;
-					gap: 26px;
-					color: #5b6678;
-					font-size: 14px;
-					font-weight: 700;
-				}
-				.nav-links a:hover { color: #111827; }
-				.hero {
-					position: relative;
-					padding: 96px 0 118px;
-					color: #fff;
-					background-image:
-						linear-gradient(90deg, rgba(5,10,20,.94), rgba(5,10,20,.62), rgba(5,10,20,.28)),
-						url("/hero-blog.png");
-					background-size: cover;
-					background-position: center;
-				}
-				.hero-content { max-width: 840px; }
-				.kicker {
-					color: #93c5fd;
-					font-size: 12px;
-					font-weight: 900;
-					letter-spacing: .12em;
-					text-transform: uppercase;
-				}
-				h1 {
-					margin: 18px 0 20px;
-					max-width: 820px;
-					font-size: clamp(44px, 6vw, 78px);
-					line-height: .96;
-					letter-spacing: -.06em;
-				}
-				.hero p {
-					margin: 0;
-					max-width: 700px;
-					color: rgba(255,255,255,.8);
-					font-size: 19px;
-					line-height: 1.65;
-				}
-				.meta {
-					display: flex;
-					flex-wrap: wrap;
-					gap: 12px;
-					margin-top: 28px;
-					color: rgba(255,255,255,.72);
-					font-size: 14px;
-					font-weight: 750;
-				}
-				.meta span {
-					padding: 8px 11px;
-					border: 1px solid rgba(255,255,255,.18);
-					border-radius: 999px;
-					background: rgba(255,255,255,.1);
-				}
-				.intro-card {
-					position: relative;
-					z-index: 2;
-					margin-top: -56px;
-					background: #fff;
-					border: 1px solid rgba(17,24,39,.08);
-					border-radius: 8px;
-					padding: 34px;
-					box-shadow: 0 22px 54px rgba(17,24,39,.1);
-				}
-				.intro-card p {
-					margin: 0;
-					color: #4b5563;
-					font-size: 18px;
-					line-height: 1.75;
-				}
-				.highlight-grid {
-					display: grid;
-					grid-template-columns: repeat(3, 1fr);
-					gap: 12px;
-					margin-top: 26px;
-				}
-				.highlight {
-					padding: 14px;
-					border-radius: 8px;
-					background: #eef5ff;
-					color: #1155cc;
-					font-size: 13px;
-					font-weight: 850;
-				}
-				.post-picker {
-					display: grid;
-					grid-template-columns: repeat(3, 1fr);
-					gap: 16px;
-					margin-top: 22px;
-				}
-				.post-link {
-					display: block;
-					padding: 22px;
-					border-radius: 8px;
-					border: 1px solid rgba(17,24,39,.08);
-					background: #f8fafc;
-					transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
-				}
-				.post-link:hover {
-					transform: translateY(-2px);
-					border-color: rgba(17,85,204,.32);
-					box-shadow: 0 14px 34px rgba(17,24,39,.08);
-				}
-				.post-thumb {
-					display: block;
-					width: 100%;
-					height: 128px;
-					margin-bottom: 18px;
-					border-radius: 8px;
-					object-fit: cover;
-					border: 1px solid rgba(17,24,39,.08);
-				}
-				.post-link span {
-					display: block;
-					color: #1155cc;
-					font-size: 12px;
-					font-weight: 900;
-					letter-spacing: .1em;
-					text-transform: uppercase;
-					margin-bottom: 10px;
-				}
-				.post-link strong {
-					display: block;
-					color: #111827;
-					font-size: 19px;
-					line-height: 1.2;
-					letter-spacing: -.02em;
-				}
-				.article {
-					padding: 76px 0 92px;
-				}
-				.article.alt {
-					background: #fff;
-					border-top: 1px solid rgba(17,24,39,.08);
-				}
-				.post-heading {
-					margin-bottom: 48px;
-					padding-bottom: 28px;
-					border-bottom: 1px solid rgba(17,24,39,.1);
-				}
-				.post-heading h2 {
-					margin-bottom: 14px;
-					font-size: clamp(36px, 5vw, 62px);
-				}
-				.post-image-slot {
-					display: block;
-					width: 100%;
-					margin: 30px 0 0;
-					border-radius: 8px;
-					aspect-ratio: 16 / 9;
-					object-fit: cover;
-					box-shadow: 0 18px 48px rgba(17,24,39,.11);
-					border: 1px solid rgba(17,24,39,.08);
-				}
-				.article section + section { margin-top: 58px; }
-				.article h2 {
-					margin: 0 0 18px;
-					color: #111827;
-					font-size: clamp(28px, 3vw, 42px);
-					line-height: 1.08;
-					letter-spacing: -.04em;
-				}
-				.article h3 {
-					margin: 0 0 10px;
-					color: #111827;
-					font-size: 20px;
-					letter-spacing: -.02em;
-				}
-				.article p {
-					margin: 0 0 18px;
-					color: #4b5563;
-					font-size: 17px;
-					line-height: 1.78;
-				}
-				.clean-list {
-					list-style: none;
-					display: grid;
-					gap: 10px;
-					margin: 22px 0 0;
-					padding: 0;
-					color: #4b5563;
-					line-height: 1.55;
-				}
-				.clean-list li {
-					display: grid;
-					grid-template-columns: 22px 1fr;
-					gap: 10px;
-				}
-				.clean-list li::before {
-					content: "\\2713";
-					color: #15803d;
-					font-weight: 900;
-				}
-				.card-grid {
-					display: grid;
-					grid-template-columns: repeat(2, 1fr);
-					gap: 16px;
-					margin-top: 24px;
-				}
-				.info-card {
-					background: #fff;
-					border: 1px solid rgba(17,24,39,.08);
-					border-radius: 8px;
-					padding: 24px;
-					box-shadow: 0 12px 34px rgba(17,24,39,.05);
-				}
-				.info-card p {
-					margin: 0;
-					font-size: 15px;
-					line-height: 1.65;
-				}
-				.callout {
-					background: #0f172a;
-					color: #fff;
-					border-radius: 8px;
-					padding: 34px;
-				}
-				.callout h2 { color: #fff; }
-				.callout p { color: #cbd5e1; }
-				.callout .clean-list { color: #dbeafe; }
-				.cta {
-					padding: 76px 0;
-					background: #fff;
-				}
-				.cta-box {
-					display: grid;
-					grid-template-columns: 1fr auto;
-					gap: 30px;
-					align-items: center;
-					padding: 34px;
-					border-radius: 8px;
-					background: #eaf1ff;
-					border: 1px solid #cfe0ff;
-				}
-				.cta h2 {
-					margin: 0 0 10px;
-					font-size: clamp(28px, 3vw, 42px);
-					letter-spacing: -.04em;
-				}
-				.cta p {
-					margin: 0;
-					color: #4b5563;
-					line-height: 1.65;
-					max-width: 680px;
-				}
-				.btn {
-					display: inline-flex;
-					align-items: center;
-					justify-content: center;
-					min-height: 46px;
-					padding: 0 20px;
-					border-radius: 8px;
-					background: #1155cc;
-					color: #fff;
-					font-size: 14px;
-					font-weight: 850;
-					white-space: nowrap;
-				}
-				.footer {
-					background: #111827;
-					color: #cbd5e1;
-					padding: 36px 0;
-				}
-				.footer-inner {
-					display: flex;
-					align-items: center;
-					justify-content: space-between;
-					gap: 24px;
-					font-size: 14px;
-				}
-				.footer-links {
-					display: flex;
-					gap: 18px;
-					font-weight: 800;
-				}
-				@media (max-width: 860px) {
-					.highlight-grid, .post-picker, .card-grid, .cta-box { grid-template-columns: 1fr; }
-					.cta-box { align-items: start; }
-				}
-				@media (max-width: 760px) {
-					.container, .article-container { width: min(100% - 28px, 1160px); }
-					.nav {
-						align-items: flex-start;
-						flex-direction: column;
-						padding: 14px 0;
-					}
-					.nav-links { flex-wrap: wrap; gap: 16px; }
-					.hero { padding: 70px 0 104px; }
-					.intro-card, .callout, .cta-box { padding: 24px; }
-					.footer-inner { flex-direction: column; align-items: flex-start; }
-					.footer-links { flex-wrap: wrap; }
-				}
-			`}</style>
-
-			<header className="header">
-				<div className="container nav">
-					<a className="brand" href="/">
-						<img src="/bk-logo.png" alt="BK AI Systems" />
-						<span>BK AI Systems</span>
-					</a>
-					<nav className="nav-links" aria-label="Main navigation">
-						<a href="/">Home</a>
-						<a href="/about">About</a>
-						<a href="/blog">Blog</a>
-						<a href="/contact">Contact Us</a>
-						<a href="/feedback">Leave Feedback</a>
-					</nav>
-				</div>
-			</header>
-
-			<main>
-				<section className="hero">
+		<Layout>
+				<section className="page-hero">
 					<div className="container">
-						<div className="hero-content">
+						<div style={{ display: "grid", gap: 20 }}>
 							<div className="kicker">BK AI Systems Blog</div>
-							<h1>How Artificial Intelligence Is Transforming Modern Business</h1>
+							<h1 className="long">How Artificial Intelligence Is Transforming Modern Business</h1>
 							<p>
 								AI is no longer reserved for large technology companies. Businesses of every size are using it to save time, reduce costs, improve service, increase sales, and make better decisions.
 							</p>
@@ -574,17 +229,17 @@ export default function BlogPage() {
 						</div>
 						<div className="post-picker" aria-label="Blog posts">
 							<a className="post-link" href="#ai-transforming-business">
-								<img className="post-thumb" src="/blog-ai-business.png" alt="" aria-hidden="true" />
+								<img className="post-thumb" src="/blog-ai-business.jpg" alt="" aria-hidden="true" />
 								<span>Post 01</span>
 								<strong>How Artificial Intelligence Is Transforming Modern Business</strong>
 							</a>
 							<a className="post-link" href="#will-ai-replace-humans">
-								<img className="post-thumb" src="/blog-ai-humans.png" alt="" aria-hidden="true" />
+								<img className="post-thumb" src="/blog-ai-humans.jpg" alt="" aria-hidden="true" />
 								<span>Post 02</span>
 								<strong>Will Artificial Intelligence Replace Humans?</strong>
 							</a>
 							<a className="post-link" href="#why-bk-ai-systems">
-								<img className="post-thumb" src="/blog-bk-growth.png" alt="" aria-hidden="true" />
+								<img className="post-thumb" src="/blog-bk-growth.jpg" alt="" aria-hidden="true" />
 								<span>Post 03</span>
 								<strong>Why BK AI Systems Is the Right Choice for Businesses Ready to Grow</strong>
 							</a>
@@ -600,7 +255,7 @@ export default function BlogPage() {
 							<p>
 								AI is no longer reserved for large technology companies. Businesses of every size are using it to save time, reduce costs, improve service, increase sales, and make better decisions.
 							</p>
-							<img className="post-image-slot" src="/blog-ai-business.png" alt="Business team using AI automation to manage customer messages, calendar bookings, CRM pipeline, and analytics" />
+							<img className="post-image-slot" src="/blog-ai-business.jpg" alt="Business team using AI automation to manage customer messages, calendar bookings, CRM pipeline, and analytics" />
 						</div>
 						<section>
 							<div className="kicker">The Rise of AI in Business</div>
@@ -674,7 +329,7 @@ export default function BlogPage() {
 								Artificial Intelligence is changing the way businesses operate. Whether it is generating leads, automating customer service, creating marketing content, or analyzing data, AI provides tools that help companies work smarter and grow faster.
 							</p>
 							<p>
-								The goal of AI is not to replace people. It is to empower them. When used correctly, AI becomes a valuable business partner that helps entrepreneurs increase productivity, improve customer experiences, and create new opportunities for growth.
+								The goal of AI is not to replace people. It is to help them. When used correctly, AI becomes a valuable business partner that helps entrepreneurs increase productivity, improve customer experiences, and create new opportunities for growth.
 							</p>
 							<p>
 								For business owners willing to embrace innovation, AI is no longer optional. It is becoming an essential part of building a successful and scalable business.
@@ -691,7 +346,7 @@ export default function BlogPage() {
 							<p>
 								The short answer is no. The more accurate answer is that AI will replace some tasks, change many jobs, and create entirely new opportunities.
 							</p>
-							<img className="post-image-slot" src="/blog-ai-humans.png" alt="Business professionals collaborating with an AI assistant interface in a modern workplace" />
+							<img className="post-image-slot" src="/blog-ai-humans.jpg" alt="Business professionals collaborating with an AI assistant interface in a modern workplace" />
 						</div>
 
 						<section>
@@ -778,7 +433,7 @@ export default function BlogPage() {
 								A business owner who ignores AI may struggle to compete against businesses that use automation to improve efficiency and customer service.
 							</p>
 							<p>
-								Likewise, workers who learn how to leverage AI tools may gain a significant advantage over those who avoid them. The future may belong not to AI alone, but to people who know how to use AI effectively.
+								Likewise, workers who learn how to use AI tools may gain a significant advantage over those who avoid them. The future may belong not to AI alone, but to people who know how to use AI effectively.
 							</p>
 						</section>
 
@@ -830,7 +485,7 @@ export default function BlogPage() {
 							<p>
 								Business owners do not need more complexity. They need systems that save time, capture leads, follow up, and help the company grow.
 							</p>
-							<img className="post-image-slot" src="/blog-bk-growth.png" alt="Business owner using AI automation to capture leads, book appointments, and track growth" />
+							<img className="post-image-slot" src="/blog-bk-growth.jpg" alt="Business owner using AI automation to capture leads, book appointments, and track growth" />
 						</div>
 
 						<section>
@@ -980,38 +635,24 @@ export default function BlogPage() {
 							<p>
 								Stop chasing every task manually. Start building systems that work for you. Let AI handle the busy work so you can focus on building the future of your business.
 							</p>
-							<a className="btn" href="/contact#book-a-call">Book a Call</a>
+							<a className="btn btn-primary" href="/contact#book-a-call">Book a Call</a>
 						</section>
 					</div>
 				</article>
 
-				<section className="cta">
+				<section className="section">
 					<div className="container">
-						<div className="cta-box">
+						<div className="cta-band panel-bracket">
 							<div>
 								<h2>Ready to see how AI can help your business?</h2>
 								<p>
 									Contact Chris Bell and BK AI Systems to learn how AI can generate more leads, automate repetitive tasks, and increase revenue.
 								</p>
 							</div>
-							<a className="btn" href="/contact#book-a-call">Book a Call</a>
+							<a className="btn btn-primary" href="/contact#book-a-call">Book a Call</a>
 						</div>
 					</div>
 				</section>
-			</main>
-
-			<footer className="footer">
-				<div className="container footer-inner">
-					<div>&copy; 2026 BK AI Systems. All rights reserved.</div>
-					<div className="footer-links">
-						<a href="/">Home</a>
-						<a href="/about">About</a>
-						<a href="/blog">Blog</a>
-						<a href="/contact">Contact Us</a>
-						<a href="/feedback">Leave Feedback</a>
-					</div>
-				</div>
-			</footer>
-		</>
+		</Layout>
 	);
 }
