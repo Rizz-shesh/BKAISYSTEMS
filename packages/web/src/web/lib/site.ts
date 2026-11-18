@@ -4,6 +4,9 @@ export const PHONE = "1-724-201-3759";
 export const PHONE_HREF = "tel:+17242013759";
 export const BOOKING_URL = "https://app.chrisbhustling.com/widget/form/ELpsu0UWhFAK29q6gdvf";
 export const BOOK_CALL_PATH = "/contact#book-a-call";
+/** GHL form "Template Waitlist". The query param must match the hidden field's "Query key" in that form. */
+export const WAITLIST_FORM_URL = "https://app.chrisbhustling.com/widget/form/x8BtUUus6dQ3oRAyZ2UL";
+export const WAITLIST_PARAM = "waitlist_template";
 
 export const NAV_LINKS = [
 	{ href: "/", label: "Home" },

@@ -1,4 +1,6 @@
+import { useCallback, useState } from "react";
 import { isExternal, type Template } from "../lib/site";
+import { WaitlistModal } from "./waitlist-modal";
 
 const ICONS: Record<Template["category"], string> = {
 	Snapshot: "M12 3 3 8l9 5 9-5-9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5",
@@ -9,6 +11,8 @@ const ICONS: Record<Template["category"], string> = {
 
 export function TemplateCard({ template: t }: { template: Template }) {
 	const external = isExternal(t.checkoutUrl);
+	const [waitlistOpen, setWaitlistOpen] = useState(false);
+	const closeWaitlist = useCallback(() => setWaitlistOpen(false), []);
 	return (
 		<article className="tpl-card">
 			<div className={`tpl-thumb ${t.category === "AI Agent" ? "AI" : t.category}`} aria-hidden="true">
@@ -25,15 +29,27 @@ export function TemplateCard({ template: t }: { template: Template }) {
 			</ul>
 			<div className="tpl-foot">
 				{t.price ? <span className="price">{t.price}</span> : <span className="tag">{t.comingSoon ? "Coming soon" : "GHL template"}</span>}
-				<a
-					className="btn btn-primary btn-sm"
-					href={t.checkoutUrl}
-					{...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-					aria-label={`Get ${t.name}`}
-				>
-					{t.comingSoon ? "Join waitlist" : "Get template"}
-				</a>
+				{t.comingSoon ? (
+					<button
+						type="button"
+						className="btn btn-primary btn-sm"
+						aria-label={`Join waitlist for ${t.name}`}
+						onClick={() => setWaitlistOpen(true)}
+					>
+						Join waitlist
+					</button>
+				) : (
+					<a
+						className="btn btn-primary btn-sm"
+						href={t.checkoutUrl}
+						{...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+						aria-label={`Get ${t.name}`}
+					>
+						Get template
+					</a>
+				)}
 			</div>
+			{waitlistOpen ? <WaitlistModal template={t.name} onClose={closeWaitlist} /> : null}
 		</article>
 	);
 }
